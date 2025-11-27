@@ -5,7 +5,7 @@ import { Job } from 'bullmq';
 export class DbWriter extends WorkerHost {
   public async process(job: Job) {
     await job.updateProgress(1);
-
+    // add a writer here using the default pg driver
     await job.updateProgress(100);
   }
 }

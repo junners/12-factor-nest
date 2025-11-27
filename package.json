@@ -25,6 +25,7 @@
     "@nestjs/common": "11.1.9",
     "@nestjs/config": "4.0.2",
     "@nestjs/core": "11.1.9",
+    "@nestjs/cqrs": "11.0.3",
     "@nestjs/platform-express": "11.1.9",
     "@nestjs/platform-fastify": "11.1.9",
     "bullmq": "5.65.0",
