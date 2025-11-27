@@ -13,21 +13,24 @@ services:
       POSTGRES_USER: default
       POSTGRES_DB: 12-factor-nest
       PGDATA: /var/lib/postgresql
+    ports:
+      - "5432:5432"
     volumes:
       - pg_data:/var/lib/postgresql
 
   flyway:
-    image: flyway/flyway:10
+    image: flyway/flyway:11-alpine
     depends_on:
       - postgres
     volumes:
-      - ./migrations:/migrations:ro
+      - ./migrations:/migrations
     command: >
       -url=jdbc:postgresql://postgres:5432/12-factor-nest
       -user=default
       -password=default
       -locations=filesystem:/migrations
       migrate
+      -X
 
 volumes:
   redis_data:
