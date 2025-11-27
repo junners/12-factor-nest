@@ -1,3 +1,4 @@
+import { AppConfigModule } from '@common/app-config';
 import { HealthCheckModule } from '@common/health-check';
 import { Module } from '@nestjs/common';
 
@@ -6,7 +7,7 @@ import { SagaService } from './saga.service';
 
 @Module({
   controllers: [SagaController],
-  imports: [HealthCheckModule],
+  imports: [HealthCheckModule, AppConfigModule],
   providers: [SagaService],
 })
 export class SagaModule {}

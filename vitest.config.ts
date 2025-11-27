@@ -20,8 +20,13 @@ export default defineConfig({
     },
   },
   test: {
+    coverage: {
+      provider: 'v8',
+      reporter: ['text-summary', 'cobertura'],
+    },
     globals: true,
     include: ['**/*.e2e-spec.ts', '**/*.spec.ts'],
+    reporters: ['default'],
     root: './',
   },
 });
