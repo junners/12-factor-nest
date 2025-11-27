@@ -37,6 +37,15 @@
         "tsConfigPath": "libs/health-check/tsconfig.lib.json"
       }
     },
+    "bull": {
+      "type": "library",
+      "root": "libs/bull",
+      "entryFile": "index",
+      "sourceRoot": "libs/bull/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/bull/tsconfig.lib.json"
+      }
+    },
     "saga": {
       "type": "application",
       "root": "apps/saga",

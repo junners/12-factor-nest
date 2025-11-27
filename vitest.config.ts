@@ -13,6 +13,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@common/app-config': path.resolve(__dirname, './libs/app-config/src'),
+      '@common/bull': path.resolve(__dirname, './libs/bull/src'),
       '@common/health-check': path.resolve(
         __dirname,
         './libs/health-check/src',
@@ -22,7 +23,7 @@ export default defineConfig({
   test: {
     coverage: {
       provider: 'v8',
-      reporter: ['text-summary', 'cobertura'],
+      reporter: ['text-summary', 'cobertura', 'lcov'],
     },
     globals: true,
     include: ['**/*.e2e-spec.ts', '**/*.spec.ts'],

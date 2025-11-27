@@ -28,6 +28,12 @@
       "@common/app-config/*": [
         "libs/app-config/src/*"
       ],
+      "@common/bull": [
+        "libs/bull/src"
+      ],
+      "@common/bull/*": [
+        "libs/bull/src/*"
+      ],
       "@common/health-check": [
         "libs/health-check/src"
       ],
