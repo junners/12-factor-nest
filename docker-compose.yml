@@ -1,0 +1,34 @@
+services:
+  redis:
+    image: redis:8.4
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  postgres:
+    image: postgres:18.1
+    environment:
+      POSTGRES_PASSWORD: default
+      POSTGRES_USER: default
+      POSTGRES_DB: 12-factor-nest
+      PGDATA: /var/lib/postgresql
+    volumes:
+      - pg_data:/var/lib/postgresql
+
+  flyway:
+    image: flyway/flyway:10
+    depends_on:
+      - postgres
+    volumes:
+      - ./migrations:/migrations:ro
+    command: >
+      -url=jdbc:postgresql://postgres:5432/12-factor-nest
+      -user=default
+      -password=default
+      -locations=filesystem:/migrations
+      migrate
+
+volumes:
+  redis_data:
+  pg_data:
