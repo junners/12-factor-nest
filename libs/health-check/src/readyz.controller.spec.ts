@@ -12,6 +12,12 @@ describe('ReadyzController', () => {
     controller = module.get<ReadyzController>(ReadyzController);
   });
 
+  describe('readyz', () => {
+    it('should return ok', () => {
+      expect(controller.readyz()).toStrictEqual({ message: 'ok' });
+    });
+  });
+
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });

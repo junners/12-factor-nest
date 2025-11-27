@@ -1,10 +1,10 @@
 import { Controller, Get, HttpCode } from '@nestjs/common';
 
-@Controller('/startz')
-export class StartzController {
+@Controller('/livez')
+export class LivezController {
   @Get()
   @HttpCode(200)
-  public startz(): { message: string } {
+  public livez(): { message: string } {
     return { message: 'ok' };
   }
 }

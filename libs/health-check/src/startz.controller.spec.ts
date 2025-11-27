@@ -12,6 +12,12 @@ describe('StartzController', () => {
     controller = module.get<StartzController>(StartzController);
   });
 
+  describe('startz', () => {
+    it('should return ok', () => {
+      expect(controller.startz()).toStrictEqual({ message: 'ok' });
+    });
+  });
+
   it('should be defined', () => {
     expect(controller).toBeDefined();
   });
