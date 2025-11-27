@@ -1,0 +1,35 @@
+FROM node:24-alpine3.22 AS base
+
+ENV PNPM_HOME=/root/.local/share/pnpm
+ENV PATH="${PNPM_HOME}:${PATH}"
+
+RUN apk add --no-cache bash wget \
+  && wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash - \
+  && pnpm --version
+
+FROM base AS test
+WORKDIR /app
+COPY . .
+ENTRYPOINT [ "pnpm", 'test:cov' ]
+
+FROM base AS builder
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
+COPY nest-cli.json tsconfig*.json webpack.config.js eslint.config.mjs ./
+COPY apps ./apps
+COPY libs ./libs
+
+RUN pnpm install --frozen-lockfile
+RUN pnpm nest build saga
+
+FROM node:24-alpine3.22 AS runner
+ENV NODE_ENV=production
+WORKDIR /app
+
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist/apps/saga ./dist/apps/saga
+
+EXPOSE 3001
+
+CMD ["node", "dist/apps/saga/main"]
