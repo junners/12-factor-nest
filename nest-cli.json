@@ -1,24 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "apps/12-factor-nest/src",
+  "sourceRoot": "apps/api/src",
   "compilerOptions": {
     "deleteOutDir": true,
     "webpack": true,
-    "tsConfigPath": "apps/12-factor-nest/tsconfig.app.json"
+    "tsConfigPath": "apps/api/tsconfig.app.json"
   },
   "monorepo": true,
-  "root": "apps/12-factor-nest",
+  "root": "apps/api",
   "projects": {
-    "12-factor-nest": {
-      "type": "application",
-      "root": "apps/12-factor-nest",
-      "entryFile": "main",
-      "sourceRoot": "apps/12-factor-nest/src",
-      "compilerOptions": {
-        "tsConfigPath": "apps/12-factor-nest/tsconfig.app.json"
-      }
-    },
     "api": {
       "type": "application",
       "root": "apps/api",
@@ -44,6 +35,15 @@
       "sourceRoot": "apps/saga/src",
       "compilerOptions": {
         "tsConfigPath": "apps/saga/tsconfig.app.json"
+      }
+    },
+    "worker": {
+      "type": "application",
+      "root": "apps/worker",
+      "entryFile": "main",
+      "sourceRoot": "apps/worker/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/worker/tsconfig.app.json"
       }
     }
   }
