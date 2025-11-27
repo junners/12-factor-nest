@@ -12,6 +12,7 @@ module.exports = {
         __dirname,
         './libs/health-check/src',
       ),
+      '@common/app-config': path.resolve(__dirname, './libs/app-config/src'),
     },
   },
   module: {

@@ -19,6 +19,15 @@
         "tsConfigPath": "apps/api/tsconfig.app.json"
       }
     },
+    "app-config": {
+      "type": "library",
+      "root": "libs/app-config",
+      "entryFile": "index",
+      "sourceRoot": "libs/app-config/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/app-config/tsconfig.lib.json"
+      }
+    },
     "health-check": {
       "type": "library",
       "root": "libs/health-check",

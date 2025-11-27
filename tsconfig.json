@@ -22,6 +22,12 @@
     "strictBindCallApply": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
+      "@common/app-config": [
+        "libs/app-config/src"
+      ],
+      "@common/app-config/*": [
+        "libs/app-config/src/*"
+      ],
       "@common/health-check": [
         "libs/health-check/src"
       ],

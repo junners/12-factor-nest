@@ -1,13 +1,10 @@
-import { resolve } from 'node:path';
+/* eslint-disable unicorn/prefer-module */
+// eslint-disable-next-line unicorn/import-style
+import * as path from 'node:path';
 import swc from 'unplugin-swc';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
-  test: {
-    globals: true,
-    include: ['**/*.e2e-spec.ts', '**/*.spec.ts'],
-    root: './',
-  },
   plugins: [
     swc.vite({
       module: { type: 'es6' },
@@ -15,7 +12,16 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@common/health-check': resolve(__dirname, './libs/health-check/src'),
+      '@common/app-config': path.resolve(__dirname, './libs/app-config/src'),
+      '@common/health-check': path.resolve(
+        __dirname,
+        './libs/health-check/src',
+      ),
     },
+  },
+  test: {
+    globals: true,
+    include: ['**/*.e2e-spec.ts', '**/*.spec.ts'],
+    root: './',
   },
 });
