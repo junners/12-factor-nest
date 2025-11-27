@@ -1,8 +1,9 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import {
   FastifyAdapter,
   type NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import { Test, TestingModule } from '@nestjs/testing';
+
 import { ApiModule } from './../src/api.module';
 
 describe('ApiController (e2e)', () => {

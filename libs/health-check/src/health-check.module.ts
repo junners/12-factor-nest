@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
+
+import { LivezController } from './livez.controller';
 import { ReadyzController } from './readyz.controller';
 import { StartzController } from './startz.controller';
-import { LivezController } from './livez.controller';
 
 @Module({
-  providers: [],
-  exports: [],
   controllers: [ReadyzController, StartzController, LivezController],
+  exports: [],
+  providers: [],
 })
 export class HealthCheckModule {}

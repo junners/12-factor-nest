@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+
 import { ReadyzController } from './readyz.controller';
 
 describe('ReadyzController', () => {
