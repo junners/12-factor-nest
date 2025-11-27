@@ -4,10 +4,10 @@ import { SagaService } from './saga.service';
 
 @Controller()
 export class SagaController {
-  constructor(private readonly sagaService: SagaService) {}
+  public constructor(private readonly sagaService: SagaService) {}
 
   @Get()
-  getHello(): string {
+  public getHello(): string {
     return this.sagaService.getHello();
   }
 }

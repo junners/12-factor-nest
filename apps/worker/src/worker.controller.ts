@@ -4,10 +4,10 @@ import { WorkerService } from './worker.service';
 
 @Controller()
 export class WorkerController {
-  constructor(private readonly workerService: WorkerService) {}
+  public constructor(private readonly workerService: WorkerService) {}
 
   @Get()
-  getHello(): string {
+  public getHello(): string {
     return this.workerService.getHello();
   }
 }
